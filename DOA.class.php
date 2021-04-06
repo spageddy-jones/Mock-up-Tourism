@@ -12,7 +12,7 @@ class PostDAO{
 	}
 	
 	function getByID($id){
-		$sql = "SELECT * FROM travelposts WHERE PostID=:id";
+		$sql = "SELECT * FROM travelpost WHERE PostID=:id";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
 		$stmt->bindValue(':id', $id);
 		$stmt->execute();
@@ -96,6 +96,14 @@ class UserDAO{
 		return $stmt;
 	}
 	
+	function getForPost($pid){
+		$sql = "SELECT * FROM traveluserdetails INNER JOIN travelpost ON travelpost.UID = traveluserdetails.UID WHERE travelpost.PostID=:id";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->bindValue(':id', $pid);
+		$stmt->execute();
+		return $stmt;
+	}
+	
 	function getForCountry($countryName){
 		$sql = "SELECT * FROM traveluserdetails WHERE Country=:name";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
@@ -124,7 +132,8 @@ class ImageDAO{
 	}
 	
 	function getForPost($pid){
-		$sql = "SELECT * FROM travelpostimages WHERE PostID=:id";
+		$sql = "SELECT * FROM travelpost INNER JOIN travelpostimages ON travelpost.PostID = travelpostimages.PostID INNER JOIN travelimagedetails ON
+					travelimagedetails.ImageID = travelpostimages.ImageID INNER JOIN travelimage ON travelimage.ImageID = travelpostimages.ImageID WHERE travelpost.PostID=:id";;
 		$stmt = $GLOBALS['pdo']->prepare($sql);
 		$stmt->bindValue(':id', $pid);
 		$stmt->execute();
