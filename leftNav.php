@@ -20,9 +20,23 @@
 		<li class="list-group-item">South America</li>
 	</ul>
 	<div class="panel-heading">Countries</div>
+	<ul class="list-group">
 	<?php
 		$allCountries = new CountryDAO;
 		$stmt = $allCountries->getAll();
+		while ($row = $stmt->fetch()){
+			echo '<li class="list-group-item">' . $row['CountryName'] . '</li>';
+		}
 	?>
+	</ul>
 	<div class="panel-heading">Cities</div>
+	<ul class="list-group">
+	<?php
+		$allCities = new CityDAO;
+		$stmt = $allCities->getAll();
+		while ($row = $stmt->fetch()){
+			echo '<li class="list-group-item">' . $row['AsciiName'] . '</li>';
+		}
+	?>
+	</ul>
 </div>
