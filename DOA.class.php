@@ -40,7 +40,7 @@ class CityDAO{
 	}
 	
 	function getByID($id){
-		$sql = "SELECT * FROM geocities WHERE GeoNameID=:id";
+		$sql = "SELECT * FROM geocities INNER JOIN geocountries on geocities.CountryCodeISO = geocountries.ISO WHERE geocities.GeoNameID=:id";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
 		$stmt->bindValue(':id', $id);
 		$stmt->execute();
@@ -89,7 +89,7 @@ class UserDAO{
 	}
 	
 	function getByID($id){
-		$sql = "SELECT * FROM traveluser WHERE UID=:id";
+		$sql = "SELECT * FROM traveluser INNER JOIN traveluserdetails ON traveluser.UID = traveluserdetails.UID WHERE traveluser.UID=:id";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
 		$stmt->bindValue(':id', $id);
 		$stmt->execute();
@@ -117,7 +117,7 @@ class UserDAO{
 class ImageDAO{
 	
 	function getAll(){
-		$sql = "SELECT * FROM travelimage";
+		$sql = "SELECT * FROM travelimage INNER JOIN travelimagedetails ON travelimage.ImageID = travelimagedetails.ImageID";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
 		$stmt->execute();
 		return $stmt;
@@ -133,7 +133,7 @@ class ImageDAO{
 	
 	function getForPost($pid){
 		$sql = "SELECT * FROM travelpost INNER JOIN travelpostimages ON travelpost.PostID = travelpostimages.PostID INNER JOIN travelimagedetails ON
-					travelimagedetails.ImageID = travelpostimages.ImageID INNER JOIN travelimage ON travelimage.ImageID = travelpostimages.ImageID WHERE travelpost.PostID=:id";;
+					travelimagedetails.ImageID = travelpostimages.ImageID INNER JOIN travelimage ON travelimage.ImageID = travelpostimages.ImageID WHERE travelpost.PostID=:id";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
 		$stmt->bindValue(':id', $pid);
 		$stmt->execute();
@@ -141,28 +141,29 @@ class ImageDAO{
 	}
 	
 	function getForUser($uid){
-		$sql = "SELECT * FROM travelimage WHERE UID=:id";
+		$sql = "SELECT * FROM travelimage INNER JOIN travelimagedetails ON travelimagedetails.ImageID = travelimage.ImageID WHERE UID=:id";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
 		$stmt->bindValue(':id', $uid);
 		$stmt->execute();
 		return $stmt;
 	}
 	function getForCity($cityCode){
-		$sql = "SELECT * FROM travelimagedetails WHERE CityCode=:cc";
+		$sql = "SELECT * FROM travelimagedetails INNER JOIN travelimage ON travelimagedetails.ImageID = travelimage.ImageID WHERE CityCode=:cc";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
 		$stmt->bindValue(':cc', $cityCode);
 		$stmt->execute();
 		return $stmt;
 	}
-	function getForCountry($countryName){
-		$sql = "SELECT * FROM travelimagedetails INNER JOIN geocountries ON geocountries.ISO = travelimagedetails.CountryCodeISO WHERE CountryName=:name";
+	function getForCountry($iso){
+		$sql = "SELECT * FROM travelimagedetails INNER JOIN geocountries ON geocountries.ISO = travelimagedetails.CountryCodeISO
+			INNER JOIN travelimage ON travelimagedetails.ImageID = travelimage.ImageID WHERE geocountries.ISO=:iso";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
-		$stmt->bindValue(':name', $countryName);
+		$stmt->bindValue(':iso', $iso);
 		$stmt->execute();
 		return $stmt;
 	}
 	function getByRating($rating){
-		
+		$sql = "SELECT * FROM travelimage";
 	}
 }
 

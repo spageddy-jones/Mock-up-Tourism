@@ -25,7 +25,7 @@
 		$allCountries = new CountryDAO;
 		$stmt = $allCountries->getAll();
 		while ($row = $stmt->fetch()){
-			echo '<li class="list-group-item">' . $row['CountryName'] . '</li>';
+			echo '<li class="list-group-item"><a href="country.php?iso=' . $row['ISO'] . '">' . $row['CountryName'] . '</a></li>';
 		}
 	?>
 	</ul>
@@ -35,7 +35,7 @@
 		$allCities = new CityDAO;
 		$stmt = $allCities->getAll();
 		while ($row = $stmt->fetch()){
-			echo '<li class="list-group-item">' . $row['AsciiName'] . '</li>';
+			echo '<li class="list-group-item"><a href="city.php?GeoNameID=' . $row['GeoNameID'] . '">' . $row['AsciiName'] . '</a></li>';
 		}
 	?>
 	</ul>

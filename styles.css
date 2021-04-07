@@ -17,3 +17,28 @@
 #title{
 	font-family: "Lobster";
 }
+
+#favButton{
+	width: 13em;
+	color: #279fdb;
+	margin-bottom: 1em;
+}
+
+#singleFav{
+	color: #279fdb;
+	margin-bottom: 1em;
+}
+
+.thumbCaption > *{
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+
+.thumbBtns > *{
+	margin-right: 1em;
+}
+
+.message{
+	color: grey;
+}
