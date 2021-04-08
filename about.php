@@ -22,7 +22,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-2">
-				<?php require_once 'leftNav.php'; ?>
+				<?php require_once 'code/leftNav.php'; ?>
 		</div>
 		<div class="col-md-10">
 			<div class="row">

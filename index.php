@@ -1,10 +1,10 @@
-<<<<<<< HEAD
-<?php require_once 'DOA.class.php'; 
-require_once 'functions.php';
+
+<?php
+require_once 'code/functions.php';
 ?>
-=======
+
 <?php require_once 'code/DOA.class.php'; ?>
->>>>>>> 44b993942ad8c729a889333204947e1600528ee2
+
 
 <!DOCTYPE html>
 <html lang="en">
