@@ -51,7 +51,7 @@ function countryInfo(){
 		$stmt = $thisCountry->getByISO($_GET["iso"]);
 		if($row = $stmt->fetch()){
 			echo '<ul class="list-group" id="countryInfo">
-				<li class="list-group-item "><h3><img src="flags/' . $row['ISO'] . '.png" alt="flag"> ' . $row['CountryName'] . '</h3></li>
+				<li class="list-group-item "><h3><img src="images/flags/' . $row['ISO'] . '.png" alt="flag"> ' . $row['CountryName'] . '</h3></li>
 				<li class="list-group-item"><strong>Capital:</strong> ' . $row['Capital'] . '</li>
 				<li class="list-group-item"><strong>Area:</strong> ' . $row['Area'] . ' sq km</li>
 				<li class="list-group-item"><strong>Population:</strong> ' . $row['Population'] . '</li>
