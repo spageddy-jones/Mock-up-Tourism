@@ -13,7 +13,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#" id="title">Share Your Travels</a>
+					<a class="navbar-brand" href="index.php" id="title">Share Your Travels</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,20 +21,20 @@
 					<ul class="nav navbar-nav navbar-left">
 						<li><a href="index.php">Home</a></li>
 						<li><a href="about.php">About Us</a></li>
-						<li><a href="travel-image.php?id=46">Advanced Search</a></li>
+						<li><a href="search.php">Advanced Search</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Browse <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="country.php?country=CA">Posts</a></li>
+								<li><a href="browse-posts.php">Posts</a></li>
 								<li><a href="browse-images.php">Images</a></li>
-								<li><a href="#">Users</a></li>
+								<li><a href="browse-users.php">Users</a></li>
 							</ul>
 						</li>
 					</ul>
 				</div>
 				</div>
 				<!-- /.navbar-collapse -->
-				<form method="post" action="index.php">
+				<form method="post" action="search.php">
 				<div class="col-md-4">
 					<div class="input-group" id="search">
 						<input class="form-control" type="text" placeholder="Search Posts" name="search" id="search">
