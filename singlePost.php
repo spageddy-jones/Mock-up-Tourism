@@ -53,7 +53,7 @@
 									$thisUser = new UserDAO;
 									$stmt = $thisUser->getForPost($_GET['id']);
 									if($row = $stmt->fetch()){
-										echo $row['FirstName'] . " " . $row['LastName'];
+										echo '<a href="singleUser.php?uid=' . $row['UID'] . '">' . $row['FirstName'] . " " . $row['LastName'] . "</a>";
 									}
 								?>
 							</li>
@@ -75,11 +75,11 @@
 				$stmt = $imagesForPost->getForPost($_GET['id']);
 				while($row = $stmt->fetch()){
 					echo '<div class="col-md-2">';
-					echo '<div class="thumbnail" id="imgThumb">
+					echo '<div class="thumbnail imgThumb">
 						<img src="images/square-medium/' . $row['Path'] . '" alt="Travel Image">
-						<div class="caption" id="thumbCaption">
+						<div class="caption thumbCaption">
 							<a href="Part03_SingleImage.php?id=' . $row['ImageID'] .'" id="titleLink">' . $row['Title'] . '</a>
-							<p id="thumbBtns"><a href="Part03_SingleImage.php?id=' . $row['ImageID'] .'" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-info-sign">View</a>
+							<p class="thumbBtns"><a href="singleImage.php?id=' . $row['ImageID'] .'" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-info-sign">View</a>
 							<a href="#" class="btn btn-success btn-sm" role="button"><span class="glyphicon glyphicon-heart">Favorite</a></p>
 						</div>
 						</div>

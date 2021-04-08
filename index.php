@@ -1,4 +1,6 @@
-<?php require_once 'DOA.class.php'; ?>
+<?php require_once 'DOA.class.php'; 
+require_once 'functions.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -69,8 +71,25 @@
 				</div>
 				<br>
 				<div class="row">
+					<div class="col-md-12">
+						<h4>Top Images</h4>
+					</div>
 				</div>
-				
+				<div class="row">
+					<div class="col-md-12">
+						<h4>New Additions</h4>
+					</div>
+				</div>
+				<div class="row">
+				<?php
+				$newImages = new ImageDAO;
+				$stmt = $newImages->getAll();
+				for($i = 0; $i < 4; $i++){
+					$row = $stmt->fetch();
+					getImages($row);
+				}
+				?>
+				</div>
 			</div>
 		</div>
 	</main>
