@@ -27,6 +27,12 @@ class PostDAO{
 		return $stmt;
 	}
 	
+	function getByString($searchString){
+		$sql = "select * from travelpost where Title like \"%" . $searchString . "%\" order by Title";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->execute();
+		return $stmt;
+	}
 }
 
 class CityDAO{
@@ -131,6 +137,18 @@ class ImageDAO{
 		return $stmt;
 	}
 	
+	function getByIDWithDetails($id){
+		$sql = "SELECT * FROM travelimage 
+		        INNER JOIN travelimagedetails ON travelimage.ImageID = travelimagedetails.ImageID 
+				inner join traveluserdetails on traveluserdetails.UID = travelimage.UID
+			    inner join geocountries on geocountries.ISO = travelimagedetails.CountryCodeISO
+				WHERE travelimage.ImageID=:id";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->bindValue(':id', $id);
+		$stmt->execute();
+		return $stmt;
+	}
+	
 	function getForPost($pid){
 		$sql = "SELECT * FROM travelpost INNER JOIN travelpostimages ON travelpost.PostID = travelpostimages.PostID INNER JOIN travelimagedetails ON
 					travelimagedetails.ImageID = travelpostimages.ImageID INNER JOIN travelimage ON travelimage.ImageID = travelpostimages.ImageID WHERE travelpost.PostID=:id";
@@ -162,8 +180,25 @@ class ImageDAO{
 		$stmt->execute();
 		return $stmt;
 	}
+	
+	function getAllRating($id){
+		$sql = "SELECT * FROM travelimagerating WHERE ImageID=:id";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->bindValue(':id', $id);
+		$stmt->execute();
+		return $stmt;
+	}
+	
 	function getByRating($rating){
 		$sql = "SELECT * FROM travelimage";
+	}
+	
+	function getByString($searchString){
+		$sql = "select * from travelimage inner join travelimagedetails on travelimage.ImageID = travelimagedetails.ImageID
+						        where Title like \"%" . $searchString . "%\" order by Title";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->execute();
+		return $stmt;
 	}
 }
 
