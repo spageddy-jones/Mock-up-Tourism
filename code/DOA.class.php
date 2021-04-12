@@ -5,7 +5,7 @@ $pdo = new PDO(DBCONNSTRING, DBUSER, DBPASS);
 class PostDAO{
 	
 	function getAll(){
-		$sql = "SELECT * FROM travelposts";
+		$sql = "SELECT * FROM travelpost ORDER BY Title ASC";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
 		$stmt->execute();
 		return $stmt;
@@ -82,7 +82,7 @@ class CountryDAO{
 class UserDAO{
 	
 	function getAll(){
-		$sql = "SELECT * FROM traveluser";
+		$sql = "SELECT * FROM traveluser INNER JOIN traveluserdetails ON traveluser.UID = traveluserdetails.UID ORDER BY FirstName ASC";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
 		$stmt->execute();
 		return $stmt;

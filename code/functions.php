@@ -32,7 +32,7 @@ function userInfo(){
 			echo '<h3>Posts by this user:</h3>';
 			while($row = $stmt->fetch()){
 				echo '<a href="singlePost.php?id=' . $row["PostID"] . '"><h4>' . $row["Title"] . '</h4></a>';
-				echo '<p class="message">' . $row['Message'] . '</p>';
+				echo $row['Message'] . '<hr>';
 			}
 			
 			$userImages = new ImageDAO;
@@ -63,7 +63,7 @@ function countryInfo(){
 		
 		$countryImages = new ImageDAO;
 		$stmt = $countryImages->getForCountry($_GET["iso"]);
-		echo '<h3>Images of this city:</h3>';
+		echo '<h3>Images of this country:</h3>';
 		while($row = $stmt->fetch()){
 				getImages($row);
 		}

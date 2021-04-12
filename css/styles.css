@@ -40,5 +40,10 @@
 }
 
 .message{
-	color: grey;
+	width: 100%;
+	height: 1.5em;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	display: inherit;
 }
