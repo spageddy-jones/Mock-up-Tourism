@@ -180,7 +180,7 @@ class ImageDAO{
 		$stmt->execute();
 		return $stmt;
 	}
-	
+
 	function getAllRating($id){
 		$sql = "SELECT * FROM travelimagerating WHERE ImageID=:id";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
@@ -188,7 +188,7 @@ class ImageDAO{
 		$stmt->execute();
 		return $stmt;
 	}
-	
+
 	function getByRating($rating){
 		$sql = "SELECT * FROM travelimage";
 	}
