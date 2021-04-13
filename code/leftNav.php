@@ -1,5 +1,6 @@
 <?php require_once 'DOA.class.php'; ?>
 
+
 <div class="panel panel-info">
 	<div class="panel-heading">Account</div>
 	<ul class="list-group">
@@ -10,9 +11,10 @@
 	</ul>
 </div>
 
-<div class="panel panel-info">
+<div class="panel panel-info" id="leftNav">
+	<div class="panel-heading">Locations <a data-toggle="collapse" data-target=".location"><span class="glyphicon glyphicon-collapse-up"></span></a></div>
 	<div class="panel-heading">Continents</div>
-	<ul class="list-group">
+	<ul class="list-group location">
 		<li class="list-group-item">Africa</li>
 		<li class="list-group-item">Antarctica</li>
 		<li class="list-group-item">Asia</li>
@@ -20,7 +22,7 @@
 		<li class="list-group-item">South America</li>
 	</ul>
 	<div class="panel-heading">Countries</div>
-	<ul class="list-group">
+	<ul class="list-group location">
 	<?php
 		$allCountries = new CountryDAO;
 		$stmt = $allCountries->getAll();
@@ -30,7 +32,7 @@
 	?>
 	</ul>
 	<div class="panel-heading">Cities</div>
-	<ul class="list-group">
+	<ul class="list-group location">
 	<?php
 		$allCities = new CityDAO;
 		$stmt = $allCities->getAll();

@@ -47,3 +47,7 @@
 	overflow: hidden;
 	display: inherit;
 }
+
+.titleLink{
+	text-align: center;
+}

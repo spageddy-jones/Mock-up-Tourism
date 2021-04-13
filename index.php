@@ -79,24 +79,41 @@ require_once 'code/functions.php';
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-md-12">
-						<h4>Top Images</h4>
+				<div class="accordian">
+					<div>
+						<button class="btn btn-info btn-block" type="button" data-toggle="collapse" data-target="#topImages">Top Images</button>
+					</div>
+						<div class="collapse in">
+						    <div id="myTopImages" style="width:100%;height:1em"></div>  
+					    </div>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="collapse" id="topImages">
+					<?php topRatings();?>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-12">
-						<h4>New Additions</h4>
+				<div class="accordian">
+					<div>
+						<button class="btn btn-info btn-block" type="button" data-toggle="collapse" data-target="#newAdditions">New Additions</button>
 					</div>
+						<div class="collapse in">
+						    <div id="myNewAdditions" style="width:100%;height:1em"></div>  
+					    </div>
+					</div>	
 				</div>
 				<div class="row">
-				<?php
-				$newImages = new ImageDAO;
-				$stmt = $newImages->getAll();
-				for($i = 0; $i < 4; $i++){
-					$row = $stmt->fetch();
-					getImages($row);
-				}
-				?>
+					<div class="collapse" id="newAdditions">
+					<?php
+					$newImages = new ImageDAO;
+					$stmt = $newImages->getAll();
+					for($i = 0; $i < 4; $i++){
+						$row = $stmt->fetch();
+						getImages($row);
+					}
+					?>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -21,33 +21,53 @@
 
 <main class="container-fluid">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-2">
+				<?php require_once 'code/leftNav.php'; ?>
+		</div>
+		<div class="col-md-6">
 		<?php
 			$thisPost = new PostDAO;
 			$stmt = $thisPost->getByID($_GET['id']);
 			if($row = $stmt->fetch()){
 				echo "<h2>" . $row['Title'] . "</h2>";
 			}
-		?>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-4">
-			<?php
-				if ($row){
-					echo $row['Message']; 
+			if ($row){
+				echo $row['Message']; 
+			}
+			?>
+			<h3>Travel images for this post</h3>
+			<?php 
+				$imagesForPost = new ImageDAO;
+				$stmt = $imagesForPost->getForPost($_GET['id']);
+				while($row = $stmt->fetch()){
+					echo '<div class="col-md-4">';
+					echo '<div class="thumbnail imgThumb">
+						<img src="images/square-medium/' . $row['Path'] . '" alt="Travel Image">
+						<div class="caption thumbCaption">
+							<a href="singleImage.php?id=' . $row['ImageID'] .'" id="titleLink">' . $row['Title'] . '</a>
+							<p class="thumbBtns"><a href="singleImage.php?id=' . $row['ImageID'] .'" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-info-sign">View</a>
+							<a href="#" class="btn btn-success btn-sm" role="button"><span class="glyphicon glyphicon-heart">Favorite</a></p>
+						</div>
+						</div>
+						</div>';
 				}
 			?>
 		</div>
-		<div class="col-md-6">
+		<br><br><br>
+		<div class="col-md-4">
 			<button type="button" class="btn btn-default btn-lg" id="favButton"><span class="glyphicon glyphicon-heart"></span> Add to Favorites List</button>
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-6">
 					<div class="panel panel-default">
 					  <!-- Default panel contents -->
 						<div class="panel-heading">Post Details</div>
 					  <!-- List group -->
 						<ul class="list-group">
+							<?php
+								$thisPost = new PostDAO;
+								$stmt = $thisPost->getByID($_GET['id']);
+								$row = $stmt->fetch();
+							?>
 							<li class="list-group-item"><strong>Date: </strong><?php if($row) {
 								echo date("M-d-Y", mktime(0, 0, 0, substr($row['PostTime'], 5, 2), substr($row['PostTime'], 8, 2), substr($row['PostTime'], 0, 4))+1);
 								} ?> </li>
@@ -65,30 +85,9 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<h3>Travel images for this post</h3>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<?php 
-				$imagesForPost = new ImageDAO;
-				$stmt = $imagesForPost->getForPost($_GET['id']);
-				while($row = $stmt->fetch()){
-					echo '<div class="col-md-2">';
-					echo '<div class="thumbnail imgThumb">
-						<img src="images/square-medium/' . $row['Path'] . '" alt="Travel Image">
-						<div class="caption thumbCaption">
-							<a href="Part03_SingleImage.php?id=' . $row['ImageID'] .'" id="titleLink">' . $row['Title'] . '</a>
-							<p class="thumbBtns"><a href="singleImage.php?id=' . $row['ImageID'] .'" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-info-sign">View</a>
-							<a href="#" class="btn btn-success btn-sm" role="button"><span class="glyphicon glyphicon-heart">Favorite</a></p>
-						</div>
-						</div>
-						</div>';
-				}
-			?>
+	
+	
+
 		</div>
 	</div>
 </main>
