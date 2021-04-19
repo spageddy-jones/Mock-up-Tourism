@@ -37,7 +37,7 @@
 				<form method="post" action="search.php">
 				<div class="col-md-4">
 					<div class="input-group" id="search">
-						<input class="form-control" type="text" placeholder="Search Posts" name="search" id="search">
+						<input class="form-control" type="text" placeholder="Search Images" name="search" id="search">
 							<span class="input-group-btn">
 								<input class="btn btn-info" type="submit" value="Search">
 							</span>

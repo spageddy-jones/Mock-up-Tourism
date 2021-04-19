@@ -162,9 +162,9 @@ function topRatings(){
 }
 
 function getImages($row){
-	echo '<div class="col-md-3">';
-	echo '<div class="thumbnail imgThumb">
-		<img src="images/square-medium/' . $row['Path'] . '" alt="Travel Image">
+	echo '<div class="col-md-3 " >';
+	echo '<div class="thumbnail imgThumb imagePanelHeight" >
+		<a href="singleImage.php?id=' . $row['ImageID'] .'"><img src="images/square-medium/' . $row['Path'] . '" alt="Travel Image"></a>
 		<div class="caption thumbCaption">
 			<a href="singleImage.php?id=' . $row['ImageID'] .'" class="titleLink">' . $row['Title'] . '</a>
 			<p class="thumbBtns"><a href="singleImage.php?id=' . $row['ImageID'] .'" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-info-sign">View</a>

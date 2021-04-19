@@ -15,11 +15,13 @@
 	<div class="panel-heading">Locations <a data-toggle="collapse" data-target=".location"><span class="glyphicon glyphicon-collapse-up"></span></a></div>
 	<div class="panel-heading">Continents</div>
 	<ul class="list-group location">
-		<li class="list-group-item">Africa</li>
-		<li class="list-group-item">Antarctica</li>
-		<li class="list-group-item">Asia</li>
-		<li class="list-group-item">Europe</li>
-		<li class="list-group-item">South America</li>
+		<li class="list-group-item"><a href="browse-images.php?continent=AF">Africa</a></li>
+		<li class="list-group-item"><a href="browse-images.php?continent=AN">Antarctica</a></li>
+		<li class="list-group-item"><a href="browse-images.php?continent=AS">Asia</a></li>
+		<li class="list-group-item"><a href="browse-images.php?continent=EU">Europe</a></li>
+		<li class="list-group-item"><a href="browse-images.php?continent=NA">North America</a></li>
+		<li class="list-group-item"><a href="browse-images.php?continent=OC">Oceania</a></li>
+		<li class="list-group-item"><a href="browse-images.php?continent=SA">South America</a></li>
 	</ul>
 	<div class="panel-heading">Countries</div>
 	<ul class="list-group location">
