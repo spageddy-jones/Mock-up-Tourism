@@ -189,10 +189,6 @@ class ImageDAO{
 		return $stmt;
 	}
 
-	function getByRating($rating){
-		$sql = "SELECT * FROM travelimage";
-	}
-	
 	function getByString($searchString){
 		$sql = "select * from travelimage inner join travelimagedetails on travelimage.ImageID = travelimagedetails.ImageID
 						        where Title like \"%" . $searchString . "%\" order by Title";

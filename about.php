@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">    
 	<title>About</title>
 
-	<link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	
@@ -31,9 +31,21 @@
 					<br/><br/>
 					
 				</div>
+				<div class="panel panel-info">
+					<div class="panel-heading">Robin Oster</div>
+					<div class="panel-body">
+						Robin was responsible for the home page, the header, and the navigation sections seen to the left. They also customized
+						the bootstrap theme, wrote browse-posts.php, browse-users.php, city.php, country.php, singleImage.php, singlePost.php, singleUser.php,
+						the functions within functions.php, and the base classes for DOA.class.php, excluding the methods getByString, getByIDWithDetails, and 
+						getAllRating.
+					</div>
+				</div>
 			</div>
 		</div>
+	
+	
 	</div>
+</div>
 </main>
 
 	</body>

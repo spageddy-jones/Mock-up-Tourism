@@ -12,7 +12,8 @@
 </div>
 
 <div class="panel panel-info" id="leftNav">
-	<div class="panel-heading">Locations <a data-toggle="collapse" data-target=".location"><span class="glyphicon glyphicon-collapse-up"></span></a></div>
+	<div class="panel-heading">Locations <a data-toggle="collapse" data-target=".location">&nbsp;
+	<span class="glyphicon glyphicon-collapse-up expand"></span></a></div>
 	<div class="panel-heading">Continents</div>
 	<ul class="list-group location">
 		<li class="list-group-item">Africa</li>
