@@ -28,16 +28,21 @@
 			<div class="row">
 				<div class="jumbotron" id="aboutJumbotron">
 					<h2>This site is an assignment for a Web Development class.</h2>
-					<br/><br/>
-					
 				</div>
 				<div class="panel panel-info">
 					<div class="panel-heading">Robin Oster</div>
 					<div class="panel-body">
 						Robin was responsible for the home page, the header, and the navigation sections seen to the left. They also customized
 						the bootstrap theme, wrote browse-posts.php, browse-users.php, city.php, country.php, singleImage.php, singlePost.php, singleUser.php,
-						the functions within functions.php, and the base classes for DOA.class.php, excluding the methods getByString, getByIDWithDetails, and 
-						getAllRating.
+						the functions within functions.php, and writing some of the base classes for DOA.class.php.
+					</div>
+				</div>
+				<div class="panel panel-info">
+					<div class="panel-heading">Nathan Fahey</div>
+					<div class="panel-body">
+						Nathan was responsible for writing browse-images.php and singleImage.php, as well as implementing the site's seach, advanced seach, 
+						and favorite functionality. He also expanded the classes in DOA.class.php, adding the getByString, getByStringDescending, getAllOrderTitle,
+						getAllOrderTitleDescending, getByIDWithDetails, get getAllWithDetails, and getAllRating methods.
 					</div>
 				</div>
 			</div>
