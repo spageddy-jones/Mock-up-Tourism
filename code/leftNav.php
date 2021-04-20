@@ -4,7 +4,7 @@
 <div class="panel panel-info">
 	<div class="panel-heading">Account</div>
 	<ul class="list-group">
-		<li class="list-group-item"><a href="#">View Favorites List</a></li>
+		<li class="list-group-item"><a href="favorites.php">View Favorites List</a></li>
 		<li class="list-group-item"><a href="#">My Account</a></li>
 		<li class="list-group-item"><a href="#">Register</a></li>
 		<li class="list-group-item"><a href="#">Login</a></li>

@@ -19,6 +19,12 @@
 <body>
 <header>
 <?php require_once "code/header.php"; ?>
+
+<?php
+    $myID = "";
+    if(isset($_GET['id']))
+		$myID = $_GET['id'];
+?>
 </header>
 
 <main class="container-fluid">
@@ -42,7 +48,7 @@
 		</div>
 		<br><br><br>
 		<div class="col-md-4">
-			<button type="button" class="btn btn-default btn-lg" id="favButton"><span class="glyphicon glyphicon-heart"></span> Add to Favorites List</button>
+			<a href=<?php echo "\"addFavorite.php?id=".$myID."&type=post\""; ?> role="button" class="btn btn-default btn-lg" id="favButton"><span class="glyphicon glyphicon-heart"></span> Add to Favorites List</a>
 			<div class="row">
 				<div class="col-md-6">
 					<div class="panel panel-default">

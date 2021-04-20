@@ -168,10 +168,44 @@ function getImages($row){
 		<div class="caption thumbCaption">
 			<a href="singleImage.php?id=' . $row['ImageID'] .'" class="titleLink">' . $row['Title'] . '</a>
 			<p class="thumbBtns"><a href="singleImage.php?id=' . $row['ImageID'] .'" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-info-sign">View</a>
-			<a href="#" class="btn btn-success btn-sm" role="button"><span class="glyphicon glyphicon-heart">Favorite</a></p>
+			<a href="addFavorite.php?id='.$row['ImageID'].'&type=image" class="btn btn-success btn-sm" role="button"><span class="glyphicon glyphicon-heart">Favorite</a></p>
 		</div>
 	</div>
 	</div>';
+}
+
+function getImagesFav($row){
+	echo '<div class="col-md-3 " >';
+	echo '<div class="thumbnail imgThumb imagePanelHeight" >
+		<a href="singleImage.php?id=' . $row['ImageID'] .'"><img src="images/square-medium/' . $row['Path'] . '" alt="Travel Image"></a>
+		<div class="caption thumbCaption">
+			<a href="singleImage.php?id=' . $row['ImageID'] .'" class="titleLink">' . $row['Title'] . '</a>
+			<p class="thumbBtns"><a href="singleImage.php?id=' . $row['ImageID'] .'" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-info-sign">View</a>
+			<a href="addFavorite.php?id='.$row['ImageID'].'&type=image&act=rem" class="btn btn-danger btn-sm" role="button">Remove</a></p>
+		</div>
+	</div>
+	</div>';
+}
+
+function favoriteImage($id){
+    $cookieName = "favoriteImage".$id;
+    setcookie($cookieName, "t"); 
+}
+function favoriteImageRem($id){
+    $cookieName = "favoriteImage".$id;
+    if(isset($_COOKIE[$cookieName]))
+        setcookie($cookieName, "f"); 
+}
+
+
+function favoritePost($id){
+	$cookieName = "favoritePost".$id;
+    setcookie($cookieName, "t"); 
+}
+function favoritePostRem($id){
+	$cookieName = "favoritePost".$id;
+	if(isset($_COOKIE[$cookieName]))
+        setcookie($cookieName, "f"); 
 }
 
 ?>

@@ -114,8 +114,8 @@
 								$result = $post->getByStringDescending($searchTerm);
 							while($row = $result->fetch()){
 								echo "<h3><a href=\"singlePost.php?id=".$row["PostID"]."\">".$row["Title"]."</a></h3>";
-								echo "<p>".$row["Message"]."</p> 
-								<button type=\"button\" class=\"btn btn-default btn-lg\" id=\"favButton\"><span class=\"glyphicon glyphicon-heart\"></span> Add to Favorites List</button>
+								echo "<p>".$row["Message"]."</p>
+								<a href=\"addFavorite.php?id=".$row["PostID"]."&type=post\" role=\"button\" class=\"btn btn-default btn-lg\" id=\"favButton\"><span class=\"glyphicon glyphicon-heart\"></span> Add to Favorites List</a>
 								<br><br>";
 								$found = true;
 							}
