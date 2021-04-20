@@ -6,8 +6,15 @@
 	bottom: 0;
 }
 
-.carousel-caption h4{
+.carousel-caption h2{
+	text-shadow: 2px 2px 8px black;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-caption h3{
 	color: black;
+	font-weight: bold;
+	background-color: rgba(255, 255, 255, 0.8);
 }
 
 #search{
@@ -52,6 +59,26 @@
 	text-align: center;
 }
 
+
 .imagePanelHeight{
     height: 250px;	
 }
+
+.imgThumb {
+	border-color: #9A1F1F;
+	border-width: 0.2em;
+	background-color: #E57F7F;
+}
+
+.desc {
+	font-family: "Amatic SC";
+}
+
+.expand{
+	color: #E57F7F;
+}
+
+.imagePanelHeight{
+    height: 250px;	
+}
+
