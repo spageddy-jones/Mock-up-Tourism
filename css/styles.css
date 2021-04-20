@@ -59,6 +59,11 @@
 	text-align: center;
 }
 
+
+.imagePanelHeight{
+    height: 250px;	
+}
+
 .imgThumb {
 	border-color: #9A1F1F;
 	border-width: 0.2em;
@@ -76,3 +81,4 @@
 .imagePanelHeight{
     height: 250px;	
 }
+

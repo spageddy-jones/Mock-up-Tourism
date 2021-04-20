@@ -33,6 +33,12 @@ class PostDAO{
 		$stmt->execute();
 		return $stmt;
 	}
+	function getByStringDescending($searchString){
+		$sql = "select * from travelpost where Title like \"%" . $searchString . "%\" order by Title DESC";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->execute();
+		return $stmt;
+	}
 }
 
 class CityDAO{
@@ -129,6 +135,20 @@ class ImageDAO{
 		return $stmt;
 	}
 	
+	function getAllOrderTitle(){
+		$sql = "SELECT * FROM travelimage INNER JOIN travelimagedetails ON travelimage.ImageID = travelimagedetails.ImageID order by Title";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->execute();
+		return $stmt;
+	}
+	
+	function getAllOrderTitleDescending(){
+		$sql = "SELECT * FROM travelimage INNER JOIN travelimagedetails ON travelimage.ImageID = travelimagedetails.ImageID order by Title DESC";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->execute();
+		return $stmt;
+	}
+	
 	function getByID($id){
 		$sql = "SELECT * FROM travelimage WHERE ImageID=:id";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
@@ -145,6 +165,16 @@ class ImageDAO{
 				WHERE travelimage.ImageID=:id";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
 		$stmt->bindValue(':id', $id);
+		$stmt->execute();
+		return $stmt;
+	}
+	
+	function getAllWithDetails(){
+		$sql = "SELECT * FROM travelimage 
+		        INNER JOIN travelimagedetails ON travelimage.ImageID = travelimagedetails.ImageID 
+				inner join traveluserdetails on traveluserdetails.UID = travelimage.UID
+			    inner join geocountries on geocountries.ISO = travelimagedetails.CountryCodeISO";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
 		$stmt->execute();
 		return $stmt;
 	}
@@ -192,6 +222,14 @@ class ImageDAO{
 	function getByString($searchString){
 		$sql = "select * from travelimage inner join travelimagedetails on travelimage.ImageID = travelimagedetails.ImageID
 						        where Title like \"%" . $searchString . "%\" order by Title";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->execute();
+		return $stmt;
+	}
+	
+	function getByStringDescending($searchString){
+		$sql = "select * from travelimage inner join travelimagedetails on travelimage.ImageID = travelimagedetails.ImageID
+						        where Title like \"%" . $searchString . "%\" order by Title DESC";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
 		$stmt->execute();
 		return $stmt;

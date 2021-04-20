@@ -28,6 +28,7 @@
 			</div>
 			<div class="col-md-8">
 			    <?php 
+				    $imID = "";
 				    $title = "Error, data not found";
 					$file = "";
 					$user = "";
@@ -54,6 +55,7 @@
 					
 					
 				    if(isset($_GET["id"])){
+						$imID = $_GET["id"];
                         $image = new ImageDAO;
     					$result = $image->getByIDWithDetails($_GET["id"]);
 	     				while($row = $result->fetch()){
@@ -132,7 +134,7 @@
 				
 				<div class="col-md-3">
 				
-				    <button type="button" class="btn btn-default btn-lg" id="favButton"><span class="glyphicon glyphicon-heart"></span> Add to Favorites List</button>
+				    <a href=<?php echo "\"addFavorite.php?id=".$imID."&type=image\""; ?> role="button" class="btn btn-default btn-lg" id="favButton"><span class="glyphicon glyphicon-heart"></span> Add to Favorites List</a>
 					<div class="panel panel-info">
                         <div class="panel-heading">
                             <h4>Rating </h4>

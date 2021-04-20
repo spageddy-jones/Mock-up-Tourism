@@ -12,11 +12,19 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 	<style><?php require_once "css/styles.css"; ?></style>
+	
+	<?php require_once "code/functions.php"; ?>
 </head>
 
 <body>
 <header>
 <?php require_once "code/header.php"; ?>
+
+<?php
+    $myID = "";
+    if(isset($_GET['id']))
+		$myID = $_GET['id'];
+?>
 </header>
 
 <main class="container-fluid">
@@ -35,27 +43,12 @@
 				echo $row['Message']; 
 			}
 			?>
-			<h3>Travel images for this post</h3>
-			<?php 
-				$imagesForPost = new ImageDAO;
-				$stmt = $imagesForPost->getForPost($_GET['id']);
-				while($row = $stmt->fetch()){
-					echo '<div class="col-md-4">';
-					echo '<div class="thumbnail imgThumb">
-						<img src="images/square-medium/' . $row['Path'] . '" alt="Travel Image">
-						<div class="caption thumbCaption">
-							<a href="singleImage.php?id=' . $row['ImageID'] .'" id="titleLink">' . $row['Title'] . '</a>
-							<p class="thumbBtns"><a href="singleImage.php?id=' . $row['ImageID'] .'" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-info-sign">View</a>
-							<a href="#" class="btn btn-success btn-sm" role="button"><span class="glyphicon glyphicon-heart">Favorite</a></p>
-						</div>
-						</div>
-						</div>';
-				}
-			?>
+			
+			
 		</div>
 		<br><br><br>
 		<div class="col-md-4">
-			<button type="button" class="btn btn-default btn-lg" id="favButton"><span class="glyphicon glyphicon-heart"></span> Add to Favorites List</button>
+			<a href=<?php echo "\"addFavorite.php?id=".$myID."&type=post\""; ?> role="button" class="btn btn-default btn-lg" id="favButton"><span class="glyphicon glyphicon-heart"></span> Add to Favorites List</a>
 			<div class="row">
 				<div class="col-md-6">
 					<div class="panel panel-default">
@@ -85,11 +78,37 @@
 				</div>
 			</div>
 		</div>
-	
+		
+	    <div class="row">
+			<div class="col-md-8">
+				<h3>Travel images for this post</h3>
+				<?php 
+					$imagesForPost = new ImageDAO;
+					$stmt = $imagesForPost->getForPost($_GET['id']);
+					while($row = $stmt->fetch()){
+						
+						getImages($row);
+						/*
+						echo '<div class="col-md-4">';
+						echo '<div class="thumbnail imgThumb">
+							<img src="images/square-medium/' . $row['Path'] . '" alt="Travel Image">
+							<div class="caption thumbCaption">
+								<a href="singleImage.php?id=' . $row['ImageID'] .'" id="titleLink">' . $row['Title'] . '</a>
+								<p class="thumbBtns"><a href="singleImage.php?id=' . $row['ImageID'] .'" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-info-sign">View</a>
+								<a href="#" class="btn btn-success btn-sm" role="button"><span class="glyphicon glyphicon-heart">Favorite</a></p>
+							</div>
+							</div>
+							</div>';
+						*/
+					}
+				?>
+			</div>
+	    </div>
 	
 
-		</div>
 	</div>
+		
+	
 </main>
 
 </body>
