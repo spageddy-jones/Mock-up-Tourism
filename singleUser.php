@@ -24,9 +24,15 @@
 		<div class="col-md-2">
 			<?php require_once 'code/leftNav.php'; ?>
 		</div>
-		<div class="col-md-10">
+		<div class="col-md-8">
 			<?php userInfo(); ?>
 		</div>
+		<div class="col-md-2">
+			<img src="images/verticalBanner.jpg" alt="Time to travel!">
+		</div>
+	</div>
+	<div class="row">
+		<img src="images/horizontalBanner.jpg" alt="Time to travel!" class="responsive">
 	</div>
 </main>
 </body>

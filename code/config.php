@@ -1,9 +1,7 @@
 <?php
-$myDBname = "nfahey1"; //"moster";
-
-define('DBHOST', 'localhost');
-define('DBNAME', $myDBname);
+define('DBHOST', '');
+define('DBNAME', 'moster');
 define('DBUSER', 'root');
 define('DBPASS', '');
-define('DBCONNSTRING','mysql:dbname='.$myDBname.';charset=utf8mb4; ');//host=localhost:3307');
+define('DBCONNSTRING','mysql:dbname=moster;charset=utf8mb4;host=localhost:3307');
 ?>

@@ -236,4 +236,41 @@ class ImageDAO{
 	}
 }
 
+class ReviewDAO{
+	function getMostRecent(){
+		$sql = "SELECT * FROM travelimagerating ORDER BY ReviewTime DESC";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->execute();
+		return $stmt;
+	}
+	
+	function hasReviewed($uid, $imageID){
+		$sql = "SELECT * FROM travelimagerating WHERE ImageID=:id AND UID=:uid";
+		$stmt = $_GLOBALS['pdo']->prepare($sql);
+		$stmt->execute();
+		return $stmt;
+	}
+	
+	function addNewReview($imageID, $rating, $uid, $review){
+		$sql = "SELECT * FROM travelimagerating ORDER BY ImageRatingID DESC";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->execute();
+		$row = $stmt->fetch();
+		
+		$newImageRatingID = $row["ImageRatingID"] + 1;
+		
+		$sql = "INSERT INTO travelimagerating VALUES (:imageRatingID, :imageID, :rating, :uid, :review, :reviewTime";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->bindValue(':imageRatingID', $newImageRatingID);
+		$stmt->bindValue(':imageID', $imageID);
+		$stmt->bindValue(':rating', $rating);
+		$stmt->bindValue(':uid', $uid);
+		$stmt->bindValue(':review', $review);
+		$stmt->bindValue(':reviewTime', date("Y-m-d H:i:s"));
+		$stmt->execute();
+		
+		return $stmt;
+	}
+}
+
 ?>

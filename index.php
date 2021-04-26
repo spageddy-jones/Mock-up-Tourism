@@ -118,7 +118,39 @@ require_once 'code/functions.php';
 					?>
 					</div>
 				</div>
+				<div class="row">
+				<div class="accordian">
+					<div>
+						<button class="btn btn-info btn-block" type="button" data-toggle="collapse" data-target="#recentReviews">Recent Reviews</button>
+					</div>
+						<div class="collapse in">
+						    <div id="myTopImages" style="width:100%;height:1em"></div>  
+					    </div>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="collapse" id="recentReviews">
+					<?php
+					$recentReviews = new ReviewDAO;
+					$stmt = $recentReviews->getMostRecent();
+					for($i = 0; $i < 2; $i++){
+						$row = $stmt->fetch();
+						echo '<div class="panel panel-info">
+							<div class="panel-body"><a href="singleImage.php?id=' . $row['ImageID'] . '">'
+							. $row['Review'] .
+							'</a></div>
+							</div>';
+					}
+					?>
+					</div>
+				</div>
 			</div>
+			<div class="col-md-2">
+				<img src="images/verticalBanner.jpg" alt="Trip and travel">
+			</div>
+		</div>
+		<div class="row">
+			<img src="images/horizontalBanner.jpg" alt="Time to travel!" class="responsive">
 		</div>
 	</main>
 	

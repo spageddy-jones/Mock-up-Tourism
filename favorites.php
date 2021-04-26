@@ -88,6 +88,12 @@
 				</div>
 				
 			</div>
+			<div class="col-md-2">
+				<img src="images/verticalBanner.jpg" alt="Time to travel!">
+			</div>
+		</div>
+		<div class="row">
+			<img src="images/horizontalBanner.jpg" alt="Time to travel!" class="responsive">
 		</div>
 </main>
 

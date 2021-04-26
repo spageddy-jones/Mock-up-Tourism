@@ -85,3 +85,24 @@
 .panel-default .panel-heading {
 	color: #E47F7F;
 }
+
+.responsive{
+	max-width: 100%;
+	height: auto;
+}
+
+#reviewForm{
+	max-width: 100%;
+	height: auto;
+}
+
+.comment{
+	width: 100%;
+	height: auto;
+}
+
+textarea{
+	height: 4em;
+	width: 100%;
+	resize: none;
+}

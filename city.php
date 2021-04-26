@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">    
-	<title>About</title>
+	<title>City</title>
 
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -25,7 +25,7 @@
 		<div class="col-md-2">
 				<?php require_once 'code/leftNav.php'; ?>
 		</div>
-		<div class="col-md-10">
+		<div class="col-md-8">
 			<?php cityInfo(); 
 			$cityInfo = new CityDAO;
 			$stmt = $cityInfo->getById($_GET['GeoNameID']);
@@ -65,5 +65,12 @@
 				getImages($row);
 			}?>
 		</div>
+		<div class="col-md-2">
+			<img src="images/verticalBanner.jpg" alt="Time to travel!">
+		</div>
+	</div>
+	<div class="row">
+		<img src="images/horizontalBanner.jpg" alt="Time to travel!" class="responsive">
+	</div>
 </body>
 </html>

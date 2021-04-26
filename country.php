@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">    
-	<title>About</title>
+	<title>Country</title>
 
     
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -26,8 +26,15 @@
 		<div class="col-md-2">
 				<?php require_once 'code/leftNav.php'; ?>
 		</div>
-		<div class="col-md-10">
+		<div class="col-md-8">
 			<?php countryInfo(); ?>
 		</div>
+		<div class="col-md-2">
+			<img src="images/verticalBanner.jpg" alt="Time to travel!">
+		</div>
+	</div>
+	<div class="row">
+		<img src="images/horizontalBanner.jpg" alt="Time to travel!" class="responsive">
+	</div>
 </body>
 </html>

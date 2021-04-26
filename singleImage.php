@@ -179,7 +179,44 @@
 				<div class="clearfix"></div>
 				<br>
 				<div class="container col-md-12">
-				    <div class="panel panel-default">
+					<div class="panel panel-default">
+						<?php
+							$currentUser = new UserDAO;
+							$review = new ReviewDAO;
+							//$userStmt = $currentUser->getByID($_SESSION["UID"]);
+							//$reviewStmt = $review->hasReviewed($_SESSION["UID"], $_GET["id"]);
+							//if($userRow = $userStmt->fetch() && !($reviewRow = $reviewStmt->fetch()){     valid user AND has not reviewed this image
+						?>
+						<div class="panel-heading">Add a review</div>
+						<div class="panel-body" id="reviewForm">
+							<form method="post">
+								<label>Rating:&nbsp;</label>
+								<input type="radio" id="1" name="rating" value="1" checked>
+								<label for="1">1 star&nbsp;</label>
+								<input type="radio" id="2" name="rating" value="2">
+								<label for="2">2 stars&nbsp;</label>
+								<input type="radio" id="3" name="rating" value="3">
+								<label for="3">3 stars&nbsp;</label>
+								<input type="radio" id="4" name="rating" value="4">
+								<label for="4">4 stars&nbsp;</label>
+								<input type="radio" id="5" name="rating" value="5">
+								<label for="2">5 stars&nbsp;</label>
+								<div class="comment">
+									<textarea id="review" name="review" placeholder="Write a review..."></textarea>
+								</div>
+								<input class="btn btn-info" type="submit" value="Post Review">
+							</form>
+						</div>
+						<?php
+							if(isset($_POST['rating']))
+							{
+								//$reviewStmt = $review->addNewReview($_GET['id'], $_POST['rating'], $_SESSION['UID'], $_POST['review']);
+							}
+						?>
+						
+					</div>				  
+
+				  <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4>Appears in post: </h4>
                         </div>
@@ -225,6 +262,12 @@
 				    ?>
 				</div>
 			</div>
+			<div class="col-md-2">
+				<img src="images/verticalBanner.jpg" alt="Time to travel!">
+			</div>
+		</div>
+		<div class="row">
+			<img src="images/horizontalBanner.jpg" alt="Time to travel!" class="responsive">
 		</div>
 </main>
 

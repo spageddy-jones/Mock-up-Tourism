@@ -24,7 +24,7 @@
 		<div class="col-md-2">
 				<?php require_once 'code/leftNav.php'; ?>
 		</div>
-		<div class="col-md-10">
+		<div class="col-md-8">
 			<div class="row">
 				<div class="jumbotron" id="aboutJumbotron">
 					<h2>This site is an assignment for a Web Development class.</h2>
@@ -33,7 +33,7 @@
 					<div class="panel-heading">Robin Oster</div>
 					<div class="panel-body">
 						Robin was responsible for the home page, the header, and the navigation sections seen to the left. They also customized
-						the bootstrap theme, wrote browse-posts.php, browse-users.php, city.php, country.php, singleImage.php, singlePost.php, singleUser.php,
+						the bootstrap theme, wrote browse-posts.php, browse-users.php, city.php, country.php, singlePost.php, singleUser.php,
 						the functions within functions.php, and writing some of the base classes for DOA.class.php.
 					</div>
 				</div>
@@ -47,8 +47,12 @@
 				</div>
 			</div>
 		</div>
-	
-	
+		<div class="col-md-2">
+			<img src="images/verticalBanner.jpg" alt="Time to travel!">
+		</div>
+	</div>
+	<div class="row">
+		<img src="images/horizontalBanner.jpg" alt="Time to travel!" class="responsive">
 	</div>
 </div>
 </main>
