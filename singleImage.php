@@ -141,6 +141,7 @@
                         </div>
 					    <div class = "panel-body">
 					        <h4><b><?php echo $ratingAvg; ?></b> [<?php echo $ratingCount; ?> reviews] </h4>
+							<h4><a href= <?php echo "\"singleImageReviews.php?id=".$imID."\""; ?> >See Reviews</a></h4> 
 					    </div>
 				    </div>
 				    <div class="panel panel-default">

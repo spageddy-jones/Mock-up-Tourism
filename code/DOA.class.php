@@ -108,6 +108,13 @@ class UserDAO{
 		return $stmt;
 	}
 	
+	function getByUsername($name){
+		$sql = "SELECT * FROM traveluser INNER JOIN traveluserdetails ON traveluser.UID = traveluserdetails.UID WHERE traveluser.UserName = '".$name."'";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->execute();
+		return $stmt;
+	}
+	
 	function getForPost($pid){
 		$sql = "SELECT * FROM traveluserdetails INNER JOIN travelpost ON travelpost.UID = traveluserdetails.UID WHERE travelpost.PostID=:id";
 		$stmt = $GLOBALS['pdo']->prepare($sql);

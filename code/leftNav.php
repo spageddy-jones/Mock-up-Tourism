@@ -7,7 +7,7 @@
 		<li class="list-group-item"><a href="favorites.php">View Favorites List</a></li>
 		<li class="list-group-item"><a href="#">My Account</a></li>
 		<li class="list-group-item"><a href="#">Register</a></li>
-		<li class="list-group-item"><a href="#">Login</a></li>
+		<li class="list-group-item"><a href="login.php">Login</a></li>
 	</ul>
 </div>
 

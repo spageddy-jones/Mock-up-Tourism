@@ -1,5 +1,8 @@
 <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<?php
+    session_start();
+?>
 <header>
 	<div class="row">
 		<nav class="navbar navbar-inverse ">
@@ -30,6 +33,24 @@
 								<li><a href="browse-users.php">Users</a></li>
 							</ul>
 						</li>
+						<li ><a> 
+						<?php
+						    require_once 'code/DOA.class.php';
+							if(isset($_SESSION["UID"])){
+								$myID = $_SESSION["UID"];
+								$myUser = new UserDAO;
+								$result = $myUser->getByID($myID); 
+								$myname = "";
+								if($row = $result->fetch()){
+									$myname = $row["FirstName"]." ".$row["LastName"];
+								}
+								echo "<b>---- Logged In As ".$myname."</b> ----";
+							}
+							else{
+								echo "<b>---- Currently Logged Out ----</b>";	
+							}
+						?> 
+						</a></li>
 					</ul>
 				</div>
 				</div>
