@@ -182,17 +182,18 @@
 				<div class="container col-md-12">
 					<div class="panel panel-default">
 						<?php
+							if(isset($_SESSION["UID"])){
 							$currentUser = new UserDAO;
 							$review = new ReviewDAO;
-							//$userStmt = $currentUser->getByID($_SESSION["UID"]);
-							//$reviewStmt = $review->hasReviewed($_SESSION["UID"], $_GET["id"]);
-							//if($userRow = $userStmt->fetch() && !($reviewRow = $reviewStmt->fetch()){     valid user AND has not reviewed this image
+							$userStmt = $currentUser->getByID($_SESSION["UID"]);
+							$reviewStmt = $review->hasReviewed($_SESSION["UID"], $_GET["id"]);
+							if($userRow = $userStmt->fetch() && !($reviewRow = $reviewStmt->fetch())){     //valid user AND has not reviewed this image
 						?>
 						<div class="panel-heading">Add a review</div>
 						<div class="panel-body" id="reviewForm">
 							<form method="post">
 								<label>Rating:&nbsp;</label>
-								<input type="radio" id="1" name="rating" value="1" checked>
+								<input type="radio" id="1" name="rating" value="1">
 								<label for="1">1 star&nbsp;</label>
 								<input type="radio" id="2" name="rating" value="2">
 								<label for="2">2 stars&nbsp;</label>
@@ -211,7 +212,19 @@
 						<?php
 							if(isset($_POST['rating']))
 							{
-								//$reviewStmt = $review->addNewReview($_GET['id'], $_POST['rating'], $_SESSION['UID'], $_POST['review']);
+								$reviewStmt = $review->addNewReview($_GET['id'], $_POST['rating'], $_SESSION['UID'], $_POST['review']);
+							}
+							}
+							else{
+								echo '<div class="panel-heading">Add a review</div>
+									<div class="panel-body" id="reviewForm">';
+								echo 'Thank you for your review!</div>';
+							}
+							}
+							else{
+								echo '<div class="panel-heading">Add a review</div>
+									<div class="panel-body" id="reviewForm">';
+								echo 'Log in to leave a review</div>';
 							}
 						?>
 						

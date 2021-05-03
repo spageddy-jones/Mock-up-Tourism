@@ -106,3 +106,14 @@ textarea{
 	width: 100%;
 	resize: none;
 }
+
+input[type=text]{
+	color: #490859;
+}
+input[type=password]{
+	color: #490859;
+}
+textarea{
+	color: #490859;
+}
+}

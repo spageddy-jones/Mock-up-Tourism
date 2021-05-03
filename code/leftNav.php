@@ -1,5 +1,11 @@
 <?php require_once 'DOA.class.php'; ?>
 
+<?php
+$user = new UserDAO;
+if(isset($_SESSION["UID"])){
+	$userStmt = $user->getByID($_SESSION["UID"]);
+}
+?>
 
 <div class="panel panel-info">
 	<div class="panel-heading">Account</div>
@@ -8,6 +14,17 @@
 		<li class="list-group-item"><a href="#">My Account</a></li>
 		<li class="list-group-item"><a href="#">Register</a></li>
 		<li class="list-group-item"><a href="login.php">Login</a></li>
+		<?php
+		if(isset($_SESSION["UID"])){
+			if ($row = $userStmt->fetch()){
+				if($row['State'] == 2){
+					echo '<li class="list-group-item"><a href="editUser.php">Edit Users (Admin Only)</a></li>';
+				}
+				else echo '<li class="list-group-item">Edit Users (Admin Only)</li>';
+			}
+			else echo '<li class="list-group-item">Edit Users (Admin Only)</li>';
+		}
+		?>
 	</ul>
 </div>
 

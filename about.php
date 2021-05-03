@@ -34,7 +34,9 @@
 					<div class="panel-body">
 						Robin was responsible for the home page, the header, and the navigation sections seen to the left. They also customized
 						the bootstrap theme, wrote browse-posts.php, browse-users.php, city.php, country.php, singlePost.php, singleUser.php,
-						the functions within functions.php, and writing some of the base classes for DOA.class.php.
+						the some of the functions within functions.php, and writing some of the base classes for DOA.class.php. In the second part of the project,
+						they were responsible for adding the travel banners, the ability to add reviews, displaying recent reviews on the front
+						page, and adding the ability for admins to edit user info, as well as further expanding DOA.class.php and functions.php.
 					</div>
 				</div>
 				<div class="panel panel-info">
@@ -42,7 +44,9 @@
 					<div class="panel-body">
 						Nathan was responsible for writing browse-images.php and singleImage.php, as well as implementing the site's seach, advanced seach, 
 						and favorite functionality. He also expanded the classes in DOA.class.php, adding the getByString, getByStringDescending, getAllOrderTitle,
-						getAllOrderTitleDescending, getByIDWithDetails, get getAllWithDetails, and getAllRating methods.
+						getAllOrderTitleDescending, getByIDWithDetails, get getAllWithDetails, and getAllRating methods. In the second part of the
+						project, Nathan further expanded upon DOA.class.php and functions.php, and was responsible for implementing the login and 
+						registration functionalities, as well as the browse reviews pages.
 					</div>
 				</div>
 			</div>

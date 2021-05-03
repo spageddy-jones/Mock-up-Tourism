@@ -1,3 +1,5 @@
+<script src="validate.js"></script>
+
 <?php require_once 'DOA.class.php';
 function userInfo(){
 	if(isset($_GET["uid"])){
@@ -208,4 +210,39 @@ function favoritePostRem($id){
         setcookie($cookieName, "f"); 
 }
 
+function editUserInfo(){
+	if(isset($_GET["uid"])){
+		$thisUser = new UserDAO;
+		$stmt = $thisUser->getByID($_GET["uid"]);
+		if($row = $stmt->fetch()){
+		?>
+			<ul class="list-group" id="editUserInfo">
+				<form method="post">
+					<li class="list-group-item"><h4><strong>First Name: <?php echo $row["FirstName"]; ?></strong></h4>
+					<label for="newFirstName">New First Name: &nbsp;</label><input type="text" name="newFirstName" id="newFirstName"></li><br>
+					<li class="list-group-item"><h4><strong>Last Name: <?php echo $row["LastName"]; ?></strong></h4>
+					<label for="newLastName">New Last Name: &nbsp;</label><input type="text" name="newLastName" id="newLastName"
+						pattern="[A-Z|a-z]{1,}" required></li><br>
+					<li class="list-group-item"><h4><strong>Address: <?php echo $row["Address"]; ?></strong></h4>
+					<label for="newAddress">New Address: &nbsp;</label><input type="text" name="newAddress" id="newAddress" required></li><br>
+					<li class="list-group-item"><h4><strong>City: <?php echo $row["City"]; ?></strong></h4>
+					<label for="newCity">New City: &nbsp;</label><input type="text" name="newCity" id="newCity" required></li><br>
+					<li class="list-group-item"><h4><strong>Region: <?php echo $row["Region"]; ?></strong></h4>
+					<label for="newRegion">New Region: &nbsp;</label><input type="text" name="newRegion" id="newRegion"></li><br>
+					<li class="list-group-item"><h4><strong>Country: <?php echo $row["Country"]; ?></strong></h4>
+					<label for="newCountry">New Country: &nbsp;</label><input type="text" name="newCountry" id="newCountry" required></li><br>
+					<li class="list-group-item"><h4><strong>Postal: <?php echo $row["Postal"]; ?></strong></h4>
+					<label for="newPostal">New Postal: &nbsp;</label><input type="text" name="newPostal" id="newPostal"></li><br>
+					<li class="list-group-item"><strong><h4><strong>Phone: <?php echo $row["Phone"]; ?></strong></h4>
+					<label for="newPhone">New Phone: &nbsp;</label><input type="tel" name="newPhone" id="newPhone" 
+						pattern="[+]?[0-9]{1,3}\s*\(?[0-9]{1,3}\)?\s*[0-9]{1,4}[-\s]*[0-9]{1,4}"></li><br>
+					<li class="list-group-item"><h4><strong>Email: <?php echo $row["Email"]; ?></strong></h4>
+					<label for="newEmail">New Email: &nbsp;</label><input type="email" name="newEmail" id="newEmail"></li><br>
+					<input class="btn btn-info" type="submit" value="Update Info">
+				</form>
+			</ul>
+		<?php
+		}
+	}
+}
 ?>

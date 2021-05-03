@@ -131,6 +131,23 @@ class UserDAO{
 		return $stmt;
 	}
 	
+	function updateUserInfo($uid, $fname, $lname, $addr, $city, $region, $country, $postal, $phone, $email){
+		$sql = "UPDATE traveluserdetails SET FirstName=:first, LastName=:last, Address=:addr, City=:city, Region=:region,
+			Country=:country, Postal=:postal, Phone=:phone, Email=:email WHERE UID=:uid";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->bindValue(':uid', $uid);
+		$stmt->bindValue(':first', $fname);
+		$stmt->bindValue(':last', $lname);
+		$stmt->bindValue(':addr', $addr);
+		$stmt->bindValue(':city', $city);
+		$stmt->bindValue(':region', $region);
+		$stmt->bindValue(':country', $country);
+		$stmt->bindValue(':postal', $postal);
+		$stmt->bindValue(':phone', $phone);
+		$stmt->bindValue(':email', $email);
+		$stmt->execute();
+		return $stmt;
+	}
 }
 
 class ImageDAO{
@@ -244,6 +261,7 @@ class ImageDAO{
 }
 
 class ReviewDAO{
+	
 	function getMostRecent(){
 		$sql = "SELECT * FROM travelimagerating ORDER BY ReviewTime DESC";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
@@ -253,7 +271,9 @@ class ReviewDAO{
 	
 	function hasReviewed($uid, $imageID){
 		$sql = "SELECT * FROM travelimagerating WHERE ImageID=:id AND UID=:uid";
-		$stmt = $_GLOBALS['pdo']->prepare($sql);
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->bindValue(':id', $imageID);
+		$stmt->bindValue(':uid', $uid);
 		$stmt->execute();
 		return $stmt;
 	}
@@ -266,7 +286,7 @@ class ReviewDAO{
 		
 		$newImageRatingID = $row["ImageRatingID"] + 1;
 		
-		$sql = "INSERT INTO travelimagerating VALUES (:imageRatingID, :imageID, :rating, :uid, :review, :reviewTime";
+		$sql = "INSERT INTO travelimagerating VALUES (:imageRatingID, :imageID, :rating, :uid, :review, :reviewTime)";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
 		$stmt->bindValue(':imageRatingID', $newImageRatingID);
 		$stmt->bindValue(':imageID', $imageID);
