@@ -32,6 +32,7 @@
 				<hr>
 				<div class="col-md-12">
 				<h3>Images</h3>
+				<br>
 			    <?php
 							$found = false;
 							$image = new ImageDAO;

@@ -126,8 +126,8 @@
 					    $result = $image->getAllRating($_GET["id"]);
 						while($row = $result->fetch()){
 							echo "<h3><b>".$row["Rating"]."/5</b></h3>";
-							$myID = 16; //for testing
-							//$myID = $row["UID"];
+							//$myID = 16; //for testing
+							$myID = $row["UID"];
 							$myUser = new UserDAO;
     			            $myresult = $myUser->getByID($myID); 
 				            $myname = "";
@@ -137,6 +137,8 @@
 							$date = $row["datecreated"];
 							if($date == "0000-00-00")
 								$date = "unknown";
+							if($myname == "")
+								$myname = "unknown";
 							echo "<h4>Posted By: ".$myname."</h4>";
 							echo "<h4>Date Posted: ".$date."</h4>";
 							echo "<p>".$row["comment"]."</p>";

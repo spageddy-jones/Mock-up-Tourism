@@ -79,6 +79,13 @@ class CountryDAO{
 		return $stmt;
 	}
 	
+	function getAllIncludeUnused(){
+		$sql = "SELECT * FROM geocountries ORDER BY CountryName ASC";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->execute();
+		return $stmt;
+	}
+	
 	function getByISO($id){
 		$sql = "SELECT * FROM geocountries WHERE ISO=:id";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
@@ -95,6 +102,13 @@ class UserDAO{
 	
 	function getAll(){
 		$sql = "SELECT * FROM traveluser INNER JOIN traveluserdetails ON traveluser.UID = traveluserdetails.UID ORDER BY FirstName ASC";
+		$stmt = $GLOBALS['pdo']->prepare($sql);
+		$stmt->execute();
+		return $stmt;
+	}
+	
+	function getAllOrderByID(){
+		$sql = "SELECT * FROM traveluser INNER JOIN traveluserdetails ON traveluser.UID = traveluserdetails.UID ORDER BY traveluser.UID ASC";
 		$stmt = $GLOBALS['pdo']->prepare($sql);
 		$stmt->execute();
 		return $stmt;
