@@ -116,4 +116,16 @@ input[type=password]{
 textarea{
 	color: #490859;
 }
+
+select:focus{
+	color: #490859;
+}
+
+select:not(:focus){
+	color: #490859;
+}
+
+option{
+	color: #490859;
+}
 }
