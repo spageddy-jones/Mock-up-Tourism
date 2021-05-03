@@ -36,7 +36,13 @@
 						<li ><a> 
 						<?php
 						    require_once 'code/DOA.class.php';
-							if(isset($_SESSION["UID"])){
+							if(basename($_SERVER['REQUEST_URI']) == "login.php"){
+								echo "<b>-------- Login / Logout --------</b>";
+							}
+							else if(basename($_SERVER['REQUEST_URI']) == "login.php?act=logout"){
+								echo "<b>-------- Login / Logout --------</b>";
+							}
+							else if(isset($_SESSION["UID"])){
 								$myID = $_SESSION["UID"];
 								$myUser = new UserDAO;
 								$result = $myUser->getByID($myID); 
@@ -48,7 +54,7 @@
 							}
 							else{
 								echo "<b>---- Currently Logged Out ----</b>";	
-							}
+							}                                                                 
 						?> 
 						</a></li>
 					</ul>

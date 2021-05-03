@@ -5,8 +5,13 @@
 	<div class="panel-heading">Account</div>
 	<ul class="list-group">
 		<li class="list-group-item"><a href="favorites.php">View Favorites List</a></li>
-		<li class="list-group-item"><a href="#">My Account</a></li>
-		<li class="list-group-item"><a href="#">Register</a></li>
+		<li class="list-group-item"><a href=<?php 
+		                                        if(isset($_SESSION["UID"]))
+		                                            echo "\"singleUser.php?uid=".$_SESSION["UID"]."\""; 
+												else
+													echo "\"login.php\"";
+											?>>My Account</a></li>
+		<li class="list-group-item"><a href="register.php">Register</a></li>
 		<li class="list-group-item"><a href="login.php">Login</a></li>
 	</ul>
 </div>
