@@ -1,7 +1,7 @@
 <?php
 define('DBHOST', '');
-define('DBNAME', 'moster');
+define('DBNAME', 'nfahey1');
 define('DBUSER', 'root');
 define('DBPASS', '');
-define('DBCONNSTRING','mysql:dbname=moster;charset=utf8mb4;host=localhost:3307');
+define('DBCONNSTRING','mysql:dbname=nfahey1;charset=utf8mb4');//;host=localhost:3307');
 ?>

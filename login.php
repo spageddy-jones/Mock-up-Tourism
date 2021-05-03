@@ -26,7 +26,7 @@
     if(isset($_GET["act"])){
 		if($_GET["act"] == "logout"){
             unset($_SESSION["UID"]);
-			header("Location: index.php");
+			//header("Location: index.php");
 		}			
 	}	
 	
@@ -54,7 +54,7 @@
 						if($found == true){
 							$_SESSION["UID"] = $foundID;
 							
-							header("Location: index.php");
+							//header("Location: index.php");
 						}
         }
 	}
@@ -67,8 +67,8 @@
 		    <?php require_once 'code/leftNav.php'; ?>
 	    </div>
 		<div class="col-md-8">
-		<h2>Login</h2>
-		<hr>
+		<h1>Login / Logout</h1>
+		<hr><hr>
 		<?php
 		    if(isset($_SESSION["UID"])){
 				$myID = $_SESSION["UID"];
@@ -78,12 +78,13 @@
 				if($row = $result->fetch()){
 					$myname = $row["FirstName"]." ".$row["LastName"];
 				}
-				echo "<h4>Currently logged in as <b>".$myname."</b></h4>";
+				echo "<h2>Currently logged in as <b>".$myname."</b></h2>";
 			}
 			else{
-			    echo "<h4>Currently logged out</h4>";	
+			    echo "<h2>Currently logged out</h2>";	
 			}
 		?>
+		<hr><br>
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
 		    <div class="panel panel-info text-center">
@@ -95,7 +96,6 @@
                 </form>
 		    </div>
 			<?php
-			
 				if(isset($_POST["username"])){
 					if(isset($_POST["password"])){
 						if($found == false){
